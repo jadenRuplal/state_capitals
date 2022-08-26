@@ -150,3 +150,44 @@ states = [
     "name": "Wyoming",
     "capital": "Cheyenne"
 }]
+
+
+
+answer_correct = 0
+answer_wrong = 0
+continue_playing = "yes"
+
+print("Welcome to Guess the Capital Game! Are you ready play!?")
+while continue_playing == "yes":
+
+    random.shuffle(states)
+
+    for state in states:
+
+        question = input(f"What is the capital of {state['name']}? \n")
+
+        if question == state["capital"]:
+
+            answer_correct = answer_correct + 1
+            print(f"Correct! You have answered {answer_correct} correctly!")
+
+        else:
+
+            answer_wrong = answer_wrong + 1
+            print(f"Incorrect! The correct answer is {state['capital']}.")
+
+    if answer_correct <= 10:
+        continue_playing == input(f"Game over. You got {answer_correct} answers correct and {answer_wrong} answers wrong.")
+
+    elif answer_correct == 25:
+        continue_playing == input(f"Game over. You got {answer_correct} answers correct and {answer_wrong} answers wrong. half way to 100% keep it up!")
+
+    elif answer_correct == 50:
+        continue_playing == input(f" You got all correct! You must be a genius or cheeting.....! care to try again? yes/no: ")
+
+        if continue_playing == "yes":
+            continue_playing == "yes"
+
+        else: print("Play again?")
+
+
